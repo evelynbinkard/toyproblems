@@ -1,20 +1,22 @@
 var longestPalindrome = function(s) {
-    const arr = s.split('');
+    
     let leftPointIndex = 0;
-    let windowSize = arr.length;
+    let windowSize = s.length;
 
     //while window fits in the array
-    while (leftPointIndex + windowSize <= arr.length) {
+    
+    while (leftPointIndex + windowSize <= s.length) {
         
-        let window = arr.slice(leftPointIndex, (leftPointIndex + windowSize));
+        let window = s.slice(leftPointIndex, (leftPointIndex + windowSize));
         //is it a palindrome?
-        console.log(window)
+        
         if (isPalindrome(window)){
-            return window.join('')
+            
+            return window
         } else {
-            console.log(window)
+           
             //can the window move to the right?
-            if (leftPointIndex + windowSize + 1 <= arr.length) {
+            if (leftPointIndex + windowSize + 1 <= s.length) {
                 //if yes
                     //move it move it
                     leftPointIndex += 1
@@ -25,10 +27,11 @@ var longestPalindrome = function(s) {
                     leftPointIndex = 0;
                 }
     }}
-   
 };
 
-const isPalindrome = (array) => {
+const isPalindrome = (string) => {
+    const array = string.split('')
+   
     if (array.join('') === array.reverse().join('')) {
         return true;
     } else {
@@ -37,6 +40,7 @@ const isPalindrome = (array) => {
 };
 
 console.log(longestPalindrome("acecar"))
+console.timeEnd('start')
 
 // array.forEach((letter, index) => {
     //const array = s.split('');
