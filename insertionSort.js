@@ -1,13 +1,13 @@
 const insertionSort = (array) => {
 
     for (let i = 1; i < array.length; i++) {
-        let current = array[i];
-        let lastSorted = i - 1;
-        while (lastSorted >= 0 && current < array[lastSorted]) {
-            array[lastSorted + 1] = array[lastSorted];
-            lastSorted--
+        let currentVal = array[i];
+        let lastSortedInd = i - 1;
+        while (lastSortedInd >= 0 && currentVal < array[lastSortedInd]) {
+            array[lastSortedInd + 1] = array[lastSortedInd];
+            lastSortedInd--
         }
-        array[lastSorted + 1] = current;
+        array[lastSortedInd + 1] = currentVal;
     }
     return array;
 }
